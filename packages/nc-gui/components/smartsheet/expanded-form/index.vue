@@ -512,18 +512,22 @@ export default {
               </NcButton>
               <template #overlay>
                 <NcMenu>
+                  
                   <NcMenuItem v-if="!isNew" class="text-gray-700" @click="_loadRow()">
                     <div v-e="['c:row-expand:reload']" class="flex gap-2 items-center" data-testid="nc-expanded-form-reload">
                       <component :is="iconMap.reload" class="cursor-pointer" />
                       {{ $t('general.reload') }}
                     </div>
+                    
                   </NcMenuItem>
+                  
                   <NcMenuItem v-if="!isNew && isMobileMode" class="text-gray-700" @click="!isNew ? copyRecordUrl() : () => {}">
                     <div v-e="['c:row-expand:copy-url']" data-testid="nc-expanded-form-copy-url" class="flex gap-2 items-center">
                       <component :is="iconMap.link" class="cursor-pointer nc-duplicate-row" />
                       {{ $t('labels.copyRecordURL') }}
                     </div>
                   </NcMenuItem>
+                  
                   <NcMenuItem
                     v-if="isUIAllowed('dataEdit') && !isNew"
                     class="text-gray-700"
@@ -540,7 +544,10 @@ export default {
                       </span>
                     </div>
                   </NcMenuItem>
+                
+                
                   <NcDivider v-if="isUIAllowed('dataEdit') && !isNew" />
+                  <!--
                   <NcMenuItem
                     v-if="isUIAllowed('dataEdit') && !isNew"
                     v-e="['c:row-expand:delete']"
@@ -552,6 +559,7 @@ export default {
                       {{ $t('activity.deleteRecord') }}
                     </span>
                   </NcMenuItem>
+                   -->
                 </NcMenu>
               </template>
             </NcDropdown>

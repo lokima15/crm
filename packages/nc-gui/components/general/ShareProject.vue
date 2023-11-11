@@ -51,6 +51,7 @@ const copySharedBase = async () => {
     data-testid="share-base-button"
     :data-sharetype="visibility"
   >
+  
     <NcButton
       v-e="['c:share:open']"
       :size="isMobileMode ? 'medium' : 'small'"
@@ -73,6 +74,7 @@ const copySharedBase = async () => {
   </div>
 
   <template v-else-if="isSharedBase">
+    
     <div class="flex-1"></div>
     <div class="flex flex-col justify-center h-full">
       <div class="flex flex-row items-center w-full">

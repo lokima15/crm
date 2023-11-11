@@ -14,10 +14,14 @@ const onClickDetails = () => {
     onViewsTabChange('relation')
   }
 }
+const { base, isSharedBase, visibility } = storeToRefs(useBase())
+
+
 </script>
 
 <template>
-  <div class="flex flex-row p-1 mx-3 mt-3 mb-3 bg-gray-100 rounded-lg gap-x-0.5 nc-view-sidebar-tab">
+  <div v-if="!isSharedBase && isUIAllowed('baseShare') && visibility !== 'hidden' && (activeTable || base)"
+      class="flex flex-row p-1 mx-3 mt-3 mb-3 bg-gray-100 rounded-lg gap-x-0.5 nc-view-sidebar-tab">
     <div
       v-e="['c:project:mode:data']"
       class="tab"

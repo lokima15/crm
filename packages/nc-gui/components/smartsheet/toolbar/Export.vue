@@ -1,8 +1,13 @@
 <script lang="ts" setup>
 import { iconMap } from '#imports'
+const { isUIAllowed } = useRoles()
+
+const { base, isSharedBase, visibility } = storeToRefs(useBase())
+
 </script>
 
 <template>
+  <div v-if="!isSharedBase && isUIAllowed('baseShare') && visibility !== 'hidden' && (activeTable || base)"> 
   <a-dropdown :trigger="['click']" overlay-class-name="nc-dropdown-actions-menu">
     <a-button v-e="['c:actions']" class="nc-actions-menu-btn nc-toolbar-btn">
       <div class="flex gap-2 items-center">
@@ -18,4 +23,5 @@ import { iconMap } from '#imports'
       </a-menu>
     </template>
   </a-dropdown>
+  </div>
 </template>
